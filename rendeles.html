@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rendeles</title>
+</head>
+<body>
+    <form>
+        <label for="termek">valasz termeket kocs</label>
+        <select name="termek" id="termek">
+            <option value="alma">alma</option>
+            <option value="korte">korte</option>
+            <option value="tej">tej</option>
+            <option value="kokuszdio">kokuszdio</option>
+            <option value="optimuss prime">optimuss prime</option>
+            <option value="villanypozna">villanypozna</option>
+        </select><br>
+        <label for="mennyiseg">mennyiseg:</label>
+        <input type="number" name="mennyiseg" id="mennyiseg" min="1" max="99" value="1" required>
+        <br>
+        <input type="button" value="rendeles">
+    </form>
+    <div>
+        egysegar: <span id="egysegar">0</span> ft/kg
+    </div>
+    <br>
+    <div>
+        fizetendo: <span id="fizetendo">0</span> ft
+    </div>
+    <script>
+        let arak = [300, 600, 1000, 1500, 2000, 800]
+        function szamol(){
+            let darab = document.getElementById("mennyiseg").value
+            let index = document.getElementById("termek").options.selectedIndex
+            document.getElementById("egysegar").innerText = arak[index]
+            document.getElementById("fizetendo").innerText = arak[index]*darab
+        }
+        document.querySelector('input[value="rendeles"]').onclick = szamol
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <label for="a">a oldal hossza: </label>
+        <input type="number" id="a" max="10"><br>
+        <label for="b">b oldal hossza: </label>
+        <input type="number" id="b" max="10"><br>
+        <input type="button" id="szamol" value="szamol"><br>
+        <label for="t">terulet: </label>
+        <input type="number" id="t" size="10" readonly><br>
+        <label for="k">kerulet: </label>
+        <input type="number" id="k" size="10" readonly><br>
+    </form>
+
+    <script>
+        function szamol(){
+            let a = parseFloat(document.getElementById("a").value)
+            let b = Number(document.getElementById("b").value)
+            if (a <= 0 || b <= 0) {
+                alert("az oldalaknak pozitivnak kell lenni")
+            }   
+            else{
+                let t = a*b
+                let k = 2*(a+b)
+                document.getElementById("t").value = t
+                document.getElementById("k").value = k
+            }         
+        }
+        document.getElementById("szamol").onclick = szamol
+    </script>
+</body>
+</html>
